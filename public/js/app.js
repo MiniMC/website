@@ -5452,33 +5452,33 @@ __webpack_require__.r(__webpack_exports__);
 
 function Home() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "bg-neutral-50 scrollbar-hide"
+    className: "bg-neutral-50 scrollbar-hide"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
-    "class": "w-full h-screen bg-center bg-no-repeat bg-cover"
+    className: "w-full h-screen bg-center bg-no-repeat bg-cover"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "w-full h-screen bg-opacity-50 bg-black flex justify-center items-center",
+    className: "w-full h-screen bg-opacity-50 bg-black flex justify-center items-center",
     style: {
-      'backgroundImage': "url('https://minimc.nl/i/wallpaper.png')"
+      'backgroundImage': "url('https://cdn.minimc.nl/wallpaper.png')"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mx-4 text-center text-white"
+    className: "mx-4 text-center text-white"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "https://minimc.nl/i/banner-cropped.png",
-    "class": "w-1/2 mx-auto"
+    src: "https://cdn.minimc.nl/banner-cropped.png",
+    className: "w-1/2 mx-auto"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://discord.gg/CAV4RQh2pU"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-    "class": "fab fa-discord text-4xl mx-2"
+    className: "fab fa-discord text-4xl mx-2"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://github.com/minimc"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-    "class": "fab fa-github text-4xl mx-2"
+    className: "fab fa-github text-4xl mx-2"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     onClick: function onClick() {
       alert('Use the IP: play.minimc.nl in Minecraft.');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-    "class": "fas fa-gamepad text-4xl mx-2"
+    className: "fas fa-gamepad text-4xl mx-2"
   })))))));
 }
 
