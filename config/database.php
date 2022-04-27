@@ -63,6 +63,15 @@ return [
             ]) : [],
         ],
 
+        'minimc' => [
+            'driver'    => env('DB_CONNECTION_MINIMC'),
+            'host'      => env('DB_HOST_MINIMC'),
+            'port'      => env('DB_PORT_MINIMC'),
+            'database'  => env('DB_DATABASE_MINIMC'),
+            'username'  => env('DB_USERNAME_MINIMC'),
+            'password'  => env('DB_PASSWORD_MINIMC'),
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
