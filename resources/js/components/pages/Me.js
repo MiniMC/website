@@ -8,13 +8,13 @@ function Me() {
 
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState();
-    const [dates, setDates] = useState();
 
     useEffect(() => {
-        axios.get('https://minimc.nl/api/user')
+        axios.get(app_url + '/api/user')
             .then(response => {
                 setData(response.data);
                 setLoading(false);
+                document.getElementById("avatar").setAttribute('src', "https://crafatar.com/renders/body/" + response.data.player.uuid + "?overlay");
             })
             .catch(function (error) {
                 console.log(error)
@@ -30,13 +30,13 @@ function Me() {
         <>
             <h1 className="text-6xl mb-6">About me</h1>
             <div className="flex w-full">
-                <img className="w-[10%] mx-12" src="https://crafatar.com/renders/body/d12bea41-e938-4c7f-890c-bdfb3158ad7a?overlay"></img>
-                <div className="flex text-left">
+                <img className="w-[10%] mx-12 hidden lg:block" id="avatar"></img>
+                <div className="lg:flex text-left">
                     <div className="mr-16">
                         <h3 className="text-3xl">User Info</h3>
                         Discord: <b>{data.user.username + "#" + data.user.discriminator}</b><br />
                         Minecraft: <b>{data.player.username}</b><br />
-                        First Joined: <b>{data.player.created_at.substring(0, data.thewalls.created_at.indexOf('T'))}</b><br />
+                        First Joined: <b>{data.player.created_at.substring(0, data.player.created_at.indexOf('T'))}</b><br />
                     </div>
                     <div className="mr-16">
                         <h3 className="text-3xl">The Walls</h3>
@@ -49,7 +49,7 @@ function Me() {
                     </div>
                 </div>
             </div>
-            <NavLink to='/' className="bg-transparent font-semibold py-2 px-4 border border-blue rounded mr-2 mt-auto">Return to home</NavLink>
+            <NavLink to='/' className="bg-transparent font-semibold py-2 px-4 border border-blue rounded mr-2 mt-4 lg:mt-auto">Return to home</NavLink>
         </>
     );
 }

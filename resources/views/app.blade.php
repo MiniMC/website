@@ -28,6 +28,8 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-189169348-3');
+
+        const app_url = "{{ env('APP_URL') }}"
     </script>
     <script type="text/javascript" src="{{mix('js/app.js')}}"></script>
 </html>

@@ -7,7 +7,7 @@ function CheckIfLinked(redirect) {
     let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://minimc.nl/api/linked')
+        axios.get(app_url + '/api/linked')
             .then(response => {
                 setData(response.data);
                 setLoading(false);

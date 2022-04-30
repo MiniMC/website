@@ -5524,7 +5524,7 @@ function CheckIfLinked(redirect) {
 
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get('https://minimc.nl/api/linked').then(function (response) {
+    axios.get(app_url + '/api/linked').then(function (response) {
       setData(response.data);
       setLoading(false);
     })["catch"](function (error) {
@@ -5610,7 +5610,7 @@ var Page = /*#__PURE__*/function (_React$Component) {
           'backgroundImage': "url('https://cdn.minimc.nl/wallpaper.png')"
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "mx-auto w-[60%] min-h-[30%] my-1 text-center text-white bg-black rounded-lg bg-opacity-60"
+        className: "mx-auto transition-all w-[90%] lg:w-[60%] min-h-[30%] my-1 text-center text-white bg-black rounded-lg bg-opacity-60"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "p-6 h-full"
       }, this.props.children))))));
@@ -5647,7 +5647,7 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     className: "w-full h-screen bg-center bg-no-repeat bg-cover"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "w-full h-screen bg-opacity-50 bg-black flex justify-center items-center",
+    className: "w-full h-screen bg-opacity-50 bg-black flex justify-center items-center bg-center",
     style: {
       'backgroundImage': "url('https://cdn.minimc.nl/wallpaper.png')"
     }
@@ -5655,7 +5655,7 @@ function Home() {
     className: "mx-4 text-center text-white"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "https://cdn.minimc.nl/banner-cropped.png",
-    className: "w-1/2 mx-auto"
+    className: "transition-all w-3/4 md:w-1/2 mx-auto"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://discord.gg/CAV4RQh2pU"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
@@ -5788,15 +5788,11 @@ function Me() {
       data = _useState4[0],
       setData = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-      _useState6 = _slicedToArray(_useState5, 2),
-      dates = _useState6[0],
-      setDates = _useState6[1];
-
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://minimc.nl/api/user').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get(app_url + '/api/user').then(function (response) {
       setData(response.data);
       setLoading(false);
+      document.getElementById("avatar").setAttribute('src', "https://crafatar.com/renders/body/" + response.data.player.uuid + "?overlay");
     })["catch"](function (error) {
       console.log(error);
       window.location.href = "/login";
@@ -5812,21 +5808,21 @@ function Me() {
   }, "About me"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex w-full"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "w-[10%] mx-12",
-    src: "https://crafatar.com/renders/body/d12bea41-e938-4c7f-890c-bdfb3158ad7a?overlay"
+    className: "w-[10%] mx-12 hidden lg:block",
+    id: "avatar"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex text-left"
+    className: "lg:flex text-left"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mr-16"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "text-3xl"
-  }, "User Info"), "Discord: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.user.username + "#" + data.user.discriminator), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Minecraft: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Joined: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.created_at.substring(0, data.thewalls.created_at.indexOf('T'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "User Info"), "Discord: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.user.username + "#" + data.user.discriminator), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Minecraft: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Joined: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.created_at.substring(0, data.player.created_at.indexOf('T'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mr-16"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "text-3xl"
   }, "The Walls"), "Wins: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.wins), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Loses: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.loses), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "XP: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.xp), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Kills: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.kills), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Deaths: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.deaths), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Played: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.created_at.substring(0, data.thewalls.created_at.indexOf('T'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
     to: "/",
-    className: "bg-transparent font-semibold py-2 px-4 border border-blue rounded mr-2 mt-auto"
+    className: "bg-transparent font-semibold py-2 px-4 border border-blue rounded mr-2 mt-4 lg:mt-auto"
   }, "Return to home"));
 }
 
