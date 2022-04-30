@@ -20,7 +20,6 @@ Route::get('/api/user', [ProfileController::class, 'index'])->middleware(['auth'
 Route::get('/api/linked', [ProfileController::class, 'checkIfLinked'])->middleware(['auth']);
 
 Route::get('/link', [LinkController::class, 'index'])->middleware(['auth']);
-Route::view('/me', 'app')->middleware(['auth']);
 
 Route::view('/{path?}', 'app')
     ->where('path', '.*');

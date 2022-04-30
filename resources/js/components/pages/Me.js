@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
-import CheckLogin from "../components/CheckLogin";
+import CheckIfLinked from "../components/CheckIfLinked";
 
 function Me() {
-    CheckLogin();
+    CheckIfLinked(true);
 
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState();
+    const [dates, setDates] = useState();
 
     useEffect(() => {
         axios.get('https://minimc.nl/api/user')
@@ -25,7 +26,6 @@ function Me() {
         return <div>Loading...</div>;
     }
 
-
     return (
         <>
             <h1 className="text-6xl mb-6">About me</h1>
@@ -36,7 +36,7 @@ function Me() {
                         <h3 className="text-3xl">User Info</h3>
                         Discord: <b>{data.user.username + "#" + data.user.discriminator}</b><br />
                         Minecraft: <b>{data.player.username}</b><br />
-                        First Joined: <b>{data.player.created_at}</b><br />
+                        First Joined: <b>{data.player.created_at.substring(0, data.thewalls.created_at.indexOf('T'))}</b><br />
                     </div>
                     <div className="mr-16">
                         <h3 className="text-3xl">The Walls</h3>
@@ -45,7 +45,7 @@ function Me() {
                         XP: <b>{data.thewalls.xp}</b><br />
                         Kills: <b>{data.thewalls.kills}</b><br />
                         Deaths: <b>{data.thewalls.deaths}</b><br />
-                        First Played: <b>{data.thewalls.created_at}</b><br />
+                        First Played: <b>{data.thewalls.created_at.substring(0, data.thewalls.created_at.indexOf('T'))}</b><br />
                     </div>
                 </div>
             </div>

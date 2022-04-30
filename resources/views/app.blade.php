@@ -19,8 +19,16 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div id="app" class="scrollbar-hide"></div>
+        <div id="app"></div>
     </body>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189169348-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-189169348-3');
+    </script>
     <script type="text/javascript" src="{{mix('js/app.js')}}"></script>
 </html>
 

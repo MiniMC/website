@@ -5829,6 +5829,11 @@ function Me() {
       data = _useState4[0],
       setData = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      dates = _useState6[0],
+      setDates = _useState6[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://minimc.nl/api/user').then(function (response) {
       setData(response.data);
@@ -5856,11 +5861,11 @@ function Me() {
     className: "mr-16"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "text-3xl"
-  }, "User Info"), "Discord: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.user.username + "#" + data.user.discriminator), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Minecraft: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Joined: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "User Info"), "Discord: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.user.username + "#" + data.user.discriminator), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Minecraft: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Joined: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.player.created_at.substring(0, data.thewalls.created_at.indexOf('T'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mr-16"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "text-3xl"
-  }, "The Walls"), "Wins: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.wins), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Loses: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.loses), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "XP: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.xp), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Kills: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.kills), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Deaths: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.deaths), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Played: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+  }, "The Walls"), "Wins: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.wins), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Loses: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.loses), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "XP: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.xp), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Kills: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.kills), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Deaths: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.deaths), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "First Played: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, data.thewalls.created_at.substring(0, data.thewalls.created_at.indexOf('T'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
     to: "/",
     className: "bg-transparent font-semibold py-2 px-4 border border-blue rounded mr-2 mt-auto"
   }, "Return to home"));

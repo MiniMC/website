@@ -18,8 +18,13 @@ class ProfileController extends Controller
     {
         $data = array();
         $data['user'] = (Auth::user()) ? User::where('id', Auth::user()->id)->first() : false;
-        $data['player'] = Players::where('discord_id', Auth::user()->id)->first();
-        $data['thewalls'] = Thewalls::where('uuid', $data['player']->uuid)->first();
+
+        $player = Players::where('discord_id', Auth::user()->id)->first();
+        if ($player != null) {    
+            $data['player'] = Players::where('discord_id', Auth::user()->id)->first();
+            $data['thewalls'] = Thewalls::where('uuid', $data['player']->uuid)->first();
+        }
+        
         return response()->json($data);
     }
 

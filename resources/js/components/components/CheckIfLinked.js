@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function CheckLogin() {
+function CheckIfLinked(redirect) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState();
     let navigate = useNavigate();
@@ -14,6 +14,7 @@ function CheckLogin() {
             })
             .catch(function (error) {
                 console.log(error);
+                return navigate('/login')
             })
     }, []);
 
@@ -22,12 +23,11 @@ function CheckLogin() {
     }
 
     if (!isLoading) {
-        console.log(data);
-        if (data == "Minecraft Not Linked!") {
+        if (data == "Minecraft Not Linked!" && redirect) {
             return navigate('/link')
         }
     }
     return null;
 }
 
-export default CheckLogin;
+export default CheckIfLinked;
