@@ -5375,10 +5375,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_components_Page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/components/Page */ "./resources/js/components/components/Page.js");
 /* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
 /* harmony import */ var _components_pages_Link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/Link */ "./resources/js/components/pages/Link.js");
-/* harmony import */ var _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/Login */ "./resources/js/components/pages/Login.js");
-/* harmony import */ var _components_pages_Me__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/Me */ "./resources/js/components/pages/Me.js");
-/* harmony import */ var _components_pages_Store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pages/Store */ "./resources/js/components/pages/Store.js");
-/* harmony import */ var _components_pages_Linked__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pages/Linked */ "./resources/js/components/pages/Linked.js");
+/* harmony import */ var _components_pages_Me__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/Me */ "./resources/js/components/pages/Me.js");
+/* harmony import */ var _components_pages_Store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/Store */ "./resources/js/components/pages/Store.js");
+/* harmony import */ var _components_pages_Linked__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pages/Linked */ "./resources/js/components/pages/Linked.js");
+/* harmony import */ var _components_pages_NotFound__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pages/NotFound */ "./resources/js/components/pages/NotFound.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -5397,24 +5397,18 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-
 function Discord() {
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useNavigate)();
-  navigate("https://discord.gg/Vuz9hcUQBp");
+  window.location.assign("https://discord.gg/Vuz9hcUQBp");
 }
 
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_components_Page__WEBPACK_IMPORTED_MODULE_2__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     path: "/store",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Store__WEBPACK_IMPORTED_MODULE_7__["default"], null),
-    exact: true
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-    path: "/login",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Login__WEBPACK_IMPORTED_MODULE_5__["default"], null),
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Store__WEBPACK_IMPORTED_MODULE_6__["default"], null),
     exact: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     path: "/me",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Me__WEBPACK_IMPORTED_MODULE_6__["default"], null),
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Me__WEBPACK_IMPORTED_MODULE_5__["default"], null),
     exact: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     path: "/link",
@@ -5422,12 +5416,15 @@ function App() {
     exact: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     path: "/linked",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Linked__WEBPACK_IMPORTED_MODULE_8__["default"], null),
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_Linked__WEBPACK_IMPORTED_MODULE_7__["default"], null),
     exact: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     path: "/discord",
     component: Discord,
     exact: true
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+    path: "*",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_pages_NotFound__WEBPACK_IMPORTED_MODULE_8__["default"], null)
   })));
 }
 
@@ -5486,10 +5483,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/components/CheckLogin.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/components/CheckLogin.js ***!
-  \**********************************************************/
+/***/ "./resources/js/components/components/CheckIfLinked.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/components/CheckIfLinked.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5514,7 +5511,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function CheckLogin() {
+function CheckIfLinked(redirect) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
       isLoading = _useState2[0],
@@ -5532,6 +5529,7 @@ function CheckLogin() {
       setLoading(false);
     })["catch"](function (error) {
       console.log(error);
+      return navigate('/login');
     });
   }, []);
 
@@ -5540,9 +5538,7 @@ function CheckLogin() {
   }
 
   if (!isLoading) {
-    console.log(data);
-
-    if (data == "Minecraft Not Linked!") {
+    if (data == "Minecraft Not Linked!" && redirect) {
       return navigate('/link');
     }
   }
@@ -5550,7 +5546,7 @@ function CheckLogin() {
   return null;
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckLogin);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckIfLinked);
 
 /***/ }),
 
@@ -5746,43 +5742,6 @@ function Linked() {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/Login.js":
-/*!************************************************!*\
-  !*** ./resources/js/components/pages/Login.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-function Login() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "bg-neutral-50 scrollbar-hide"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
-    className: "w-full h-screen bg-center bg-no-repeat bg-cover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "w-full h-screen bg-opacity-50 bg-black flex justify-center items-center",
-    style: {
-      'backgroundImage': "url('https://cdn.minimc.nl/wallpaper.png')"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mx-auto w-[60%] min-h-[50%] my-1 text-center bg-white rounded-lg bg-opacity-60"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "p-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-    className: "text-6xl"
-  }, "Buy VIP"))))));
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Login);
-
-/***/ }),
-
 /***/ "./resources/js/components/pages/Me.js":
 /*!*********************************************!*\
   !*** ./resources/js/components/pages/Me.js ***!
@@ -5798,7 +5757,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_CheckLogin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CheckLogin */ "./resources/js/components/components/CheckLogin.js");
+/* harmony import */ var _components_CheckIfLinked__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CheckIfLinked */ "./resources/js/components/components/CheckIfLinked.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5817,7 +5776,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Me() {
-  (0,_components_CheckLogin__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  (0,_components_CheckIfLinked__WEBPACK_IMPORTED_MODULE_2__["default"])(true);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
@@ -5872,6 +5831,44 @@ function Me() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Me);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/NotFound.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/pages/NotFound.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+
+
+
+function NotFound() {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var textArray = ['https://media4.giphy.com/media/xCwYFe19SldXLrJlwm/giphy.gif', 'https://media2.giphy.com/media/Ta3v3I4GI1gH7Rqek6/giphy.gif', 'https://media4.giphy.com/media/clupdT5vHL9GifMlnC/200w.webp', 'https://media4.giphy.com/media/l2JhORT5IFnj6ioko/100.webp', 'https://media2.giphy.com/media/VMHangSajZV6yiC9ZV/giphy.webp', 'https://media1.giphy.com/media/3zDdFSPALuCe6C43nM/200w.webp', 'https://media3.giphy.com/media/OQrx03s8VwOl7XmfiZ/200w.webp', 'https://media4.giphy.com/media/5n26EW5p9lWGafPdbf/200w.webp'];
+    var randomGif = Math.floor(Math.random() * textArray.length);
+    document.getElementById("image").setAttribute('src', textArray[randomGif]);
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+    className: "text-6xl mb-6"
+  }, "404"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Sorry, but we couldn't find that page. This page may not exits anymore or the url maybe misspelled."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "",
+    id: "image",
+    className: "mx-auto rounded-lg my-8 w-[25%]"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+    to: "/",
+    className: "bg-transparent font-semibold py-2 px-4 border border-blue rounded mr-2"
+  }, "Return to home"));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotFound);
 
 /***/ }),
 

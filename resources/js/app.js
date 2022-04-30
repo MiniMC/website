@@ -13,15 +13,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Page from './components/components/Page';
 import Home from "./components/pages/Home";
 import Link from './components/pages/Link';
-import Login from './components/pages/Login';
 import Me from './components/pages/Me';
 import Store from './components/pages/Store';
-import { useNavigate } from "react-router-dom";
 import Linked from './components/pages/Linked';
+import NotFound from './components/pages/NotFound';
 
 function Discord() {
-    let navigate = useNavigate();
-    navigate("https://discord.gg/Vuz9hcUQBp");
+    window.location.assign("https://discord.gg/Vuz9hcUQBp"); 
 }
 
 function App() {
@@ -29,11 +27,11 @@ function App() {
         <Page>
             <Routes>
                 <Route path="/store" element={<Store /> } exact/>
-                <Route path="/login" element={<Login /> } exact/>
                 <Route path="/me" element={<Me /> } exact/>
                 <Route path="/link" element={<Link /> } exact/>
                 <Route path="/linked" element={<Linked /> } exact/>
                 <Route path="/discord" component={Discord} exact/>
+                <Route path="*" element={<NotFound /> } />
             </Routes>    
         </Page>
     );
